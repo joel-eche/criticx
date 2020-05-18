@@ -1,0 +1,38 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert" id="notice">
+    <%= notice %>
+  </div>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @company.description %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @company.start_date %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @company.country %>
+</p>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>
+
+<hr>
+<% unless @company.games.empty? %>
+<strong>Games:</strong>
+<% end %>
+<ul class="list-group">
+  <% @company.games.each do |game| %>
+    <li class="list-group-item"><%= game.name %></li>
+  <% end %>
+</ul>

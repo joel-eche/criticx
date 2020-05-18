@@ -1,0 +1,46 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert" id="notice">
+    <%= notice %>
+  </div>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @game.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @game.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @game.price %>
+</p>
+
+<p>
+  <strong>Release date:</strong>
+  <%= @game.release_date %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @game.company_id %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
+
+<hr>
+<% unless @game.critics.empty? %>
+<strong>Critics:</strong>
+<% end %>
+<ul class="list-group">
+  <% @game.critics.each do |critic| %>
+    <li class="list-group-item">
+      <strong><%= critic.username %></strong>
+      <p><%= critic.body %></p>
+    </li>
+  <% end %>
+</ul>

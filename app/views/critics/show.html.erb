@@ -1,0 +1,28 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert" id="notice">
+    <%= notice %>
+  </div>
+<% end %>
+
+<p>
+  <strong>Username:</strong>
+  <%= @critic.username %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @critic.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @critic.body %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @critic.game_id %>
+</p>
+
+<%= link_to 'Edit', edit_critic_path(@critic) %> |
+<%= link_to 'Back', critics_path %>

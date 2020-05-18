@@ -1,0 +1,41 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert" id="notice">
+    <%= notice %>
+  </div>
+<% end %>
+
+<h1>Critics</h1>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Title</th>
+        <th>Body</th>
+        <th>Game</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @critics.each do |critic| %>
+        <tr>
+          <td><%= critic.username %></td>
+          <td><%= critic.title %></td>
+          <td><%= critic.body %></td>
+          <td><%= critic.game_id %></td>
+          <td>
+            <%= link_to 'Show', critic, class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Edit', edit_critic_path(critic), class: 'btn btn-success btn-sm' %>
+            <%= link_to 'Destroy', critic, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'New Critic', new_critic_path %>

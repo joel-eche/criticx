@@ -1,0 +1,34 @@
+<%= form_with(model: critic, local: true) do |form| %>
+  <% if critic.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger" role="alert">
+      <p><%= pluralize(critic.errors.count, "error") %> prohibited this critic from being saved:</p>
+
+      <ul>
+        <% critic.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :username %>
+    <%= form.text_field :username, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :body %>
+    <%= form.text_area :body, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= form.label :game_id %>
+    <%= form.text_field :game_id, class: 'form-control' %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save", class: 'btn btn-primary' %>
+  </div>
+<% end %>

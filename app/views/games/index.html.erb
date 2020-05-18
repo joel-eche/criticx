@@ -1,0 +1,42 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert" id="notice">
+    <%= notice %>
+  </div>
+<% end %>
+
+<h1>Games</h1>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Release date</th>
+        <th scope="col">Company</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @games.each do |game| %>
+        <tr>
+          <td scope="row"><%= game.name %></td>
+          <td scope="row"><%= game.description %></td>
+          <td scope="row"><%= game.price %></td>
+          <td scope="row"><%= game.release_date %></td>
+          <td scope="row"><%= game.company_id %></td>
+          <td scope="row">
+            <%= link_to 'Show', game, class: 'btn btn-primary btn-sm' %>
+            <%= link_to 'Edit', edit_game_path(game), class: 'btn btn-success btn-sm' %>
+            <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-sm' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<%= link_to 'New Game', new_game_path %>
